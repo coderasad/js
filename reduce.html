@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Result Print</p>
+    <div id="print"></div>
+
+    <script>
+      /* 
+      GET TOTAL PRICE
+      const products = [
+         { name: "Pen", amount: 5, price: 10 },
+        { name: "Book", amount: 3, price: 300 },
+         { name: "NoteBook", amount: 2, price: 50 },
+       ];
+       
+       const result = products.reduce((acc, cur) => {
+         return acc + cur.amount * cur.price;
+       },0)
+      */
+
+      /*
+      GET COUNT VOTES
+       votes = [
+         "Java",
+         "JavaScript",
+         "Python",
+         "Java",
+         "JavaScript",
+         "Python",
+         "JavaScript",
+       ];
+
+        const result = votes.reduce((acc, cur) => {
+          if (acc[cur]) {
+            acc[cur]++;
+          } else {
+            acc[cur] = 1;
+          }
+          return acc;
+        },{});
+        console.log(result);
+      */
+
+      /*
+      const links = [
+        { name: "Facebook", url: "https://facebook.com" },
+        { name: "Youtube", url: "https://youtube.com" },
+        { name: "Linkedin", url: "https://linkedin.com" },
+        { name: "Twitter", url: "https://twitter.com" },
+        { name: "Instragram", url: "https://instagram.com" },
+      ];
+
+      let template = `<ul>{{links}}</ul>`;
+
+      const linkList = links.reduce((acc, cur) => {
+        acc += `<li><a href='${cur.url}'>${cur.name}</a></li>`;
+        return acc;
+      }, "");
+
+      template = template.replace("{{links}}", linkList);
+
+      document.querySelector("#print").innerHTML = template;
+      console.log(template);
+
+      */
+
+      // GROUPING SIMILAR ELEMENTS
+      /*
+      const words = [
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
+        "ten",
+      ];
+
+      const group = words.reduce((acc, cur) => {
+        const len = cur.length;
+        if (acc[len]) {
+          acc[len].push(cur);
+        } else {
+          acc[len] = [];
+        }
+        return acc;
+      }, {});
+      console.log(group);
+      */
+
+      //COMBINING DATA FROM DIFFERENT SOURCES
+      /*
+const products = [
+  {
+    id: 'OC1',
+    name: 'Pencil',
+    price: 1000
+  },
+  {
+    id: 'OC2',
+    name: 'Pen',
+    price: 2000
+  },
+  {
+    id: 'OC3',
+    name: 'Book',
+    price: 3000
+  },
+];
+
+const discountPrice = {
+  OC1: 500,
+  // OC2: 600,
+  OC3: 700,
+}
+
+const updatedProducts = products.reduce((acc,cur)=>{
+  if(discountPrice[cur.id]){
+    cur.discountPrice = discountPrice[cur.id]
+  }else{
+    cur.discountPrice = 0
+  }
+  acc.push(cur)
+  return acc
+},[])
+console.log(updatedProducts);
+
+*/
+
+      //Contact List by Group
+      /*
+      const contacts = [
+        { name: "aaaaaaaaa", email: "a@email.com", phone: "111" },
+        { name: "eeeeeeeee", email: "e@email.com", phone: "555" },
+        { name: "bbbbbbbbb", email: "b@email.com", phone: "222" },
+        { name: "ccccccccc", email: "c@email.com", phone: "333" },
+        { name: "dddddhhh", email: "h@email.com", phone: "888" },
+        { name: "ddddddddd", email: "d@email.com", phone: "444" },
+        { name: "fffffffff", email: "f@email.com", phone: "666" },
+        { name: "jjjjjjjjj", email: "j@email.com", phone: "100" },
+        { name: "ggggggggg", email: "g@email.com", phone: "777" },
+        { name: "ggggiiiii", email: "i@email.com", phone: "999" },
+      ];
+
+      contacts.sort((a, b) => {
+        if (a.name > b.name) return 1;
+        if (a.name < b.name) return -1;
+        return 0;
+      });
+
+      const group = contacts.reduce((acc, cur) => {
+        let groupName = cur.name.charAt(0).toUpperCase();
+
+        if (acc[groupName]) {
+          acc[groupName].push(cur);
+        } else {
+          acc[groupName] = [cur];
+        }
+        return acc;
+      }, {});
+
+      const displayList = (group) => {
+        console.log("Displaying Contact Information");
+        console.log("--------------------------------------");
+        const keys = Object.keys(group)
+        keys.forEach((key)=>{
+          console.log(`Group: ${key}`);
+          console.table(group[key]);
+        })
+      };
+
+      displayList(group);
+*/
+
+    </script>
+  </body>
+</html>
